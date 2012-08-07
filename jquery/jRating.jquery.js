@@ -3,7 +3,7 @@
 @Name :       	jRating - jQuery Plugin
 @Revison :    	2.2
 @Date : 		26/01/2011
-@Author:     	ALPIXEL - (www.myjqueryplugins.com - www.alpixel.fr) 
+@Author:     	 ALPIXEL - (www.myjqueryplugins.com - www.alpixel.fr) 
 @License :		 Open Source - MIT License : http://www.opensource.org/licenses/mit-license.php
  
 **************************************************************************
@@ -12,9 +12,9 @@
 	$.fn.jRating = function(op) {
 		var defaults = {
 			/** String vars **/
-			bigStarsPath : 'plugins/jrating/demo/jquery/icons/stars.png', // path of the icon stars.png
-			smallStarsPath : 'plugins/jrating/demo/jquery/icons/small.png', // path of the icon small.png
-			phpPath : 'plugins/jrating/demo/php/jRating.php', // path of the php file jRating.php
+			bigStarsPath : 'jquery/icons/stars.png', // path of the icon stars.png
+			smallStarsPath : 'jquery/icons/small.png', // path of the icon small.png
+			phpPath : 'php/jRating.php', // path of the php file jRating.php
 			type : 'big', // can be set to 'small' or 'big'
 			
 			/** Boolean vars **/
@@ -93,7 +93,6 @@
 				mouseenter : function(e){
 					var realOffsetLeft = findRealLeft(this);
 					var relativeX = e.pageX - realOffsetLeft;
-					
 					if (opts.showRateInfo)
 					var tooltip = 
 					$('<p>',{
@@ -118,8 +117,7 @@
 					if(opts.step) newWidth = Math.floor(relativeX/starWidth)*starWidth + starWidth;
 					else newWidth = relativeX;
 					average.width(newWidth);					
-					
-					if(opts.showRateInfo)
+					if (opts.showRateInfo)
 					$("p.jRatingInfos")
 					.css({
 						left: (e.pageX + opts.rateInfosX)
@@ -131,7 +129,7 @@
 				},
 				click : function(e){
 					$(this).unbind().css('cursor','default').addClass('jDisabled');
-					if(opts.showRateInfo) $("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
+					if (opts.showRateInfo) $("p.jRatingInfos").fadeOut('fast',function(){$(this).remove();});
 					e.preventDefault();
 					var rate = getNote(newWidth);
 					average.width(newWidth);
